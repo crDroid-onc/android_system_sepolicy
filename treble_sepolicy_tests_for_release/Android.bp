@@ -24,6 +24,32 @@ package {
 // given release version.
 //////////////////////////////////
 java_genrule {
+    name: "28.0_mapping.combined.cil",
+    srcs: [
+        ":plat_28.0.cil",
+        ":28.0.ignore.cil",
+    ],
+    out: ["28.0_mapping.combined.cil"],
+    cmd: "cat $(location :plat_28.0.cil) $(location :28.0.ignore.cil) > $(out)",
+}
+
+java_genrule {
+    name: "treble_sepolicy_tests_28.0",
+    srcs: [
+        ":28.0_plat_policy.cil",
+        ":28.0_mapping.combined.cil",
+        ":28.0_plat_pub_policy.cil",
+    ],
+    tools: ["treble_sepolicy_tests"],
+    out: ["treble_sepolicy_tests_28.0"],
+    cmd: "$(location treble_sepolicy_tests) " +
+        "-b $(location :28.0_plat_pub_policy.cil) " +
+        "-m $(location :28.0_mapping.combined.cil) " +
+        "-o $(location :28.0_plat_policy.cil) && " +
+        "touch $(out)",
+}
+
+java_genrule {
     name: "29.0_mapping.combined.cil",
     srcs: [
         ":plat_29.0.cil",

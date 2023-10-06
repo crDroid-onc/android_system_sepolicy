@@ -109,6 +109,8 @@ phony {
         "plat_sepolicy_genfs_202604.cil",
         "plat_service_contexts",
         "secilc",
+        "plat_28.0.cil",
+        "28.0.compat.cil",
         "plat_29.0.cil",
         "plat_30.0.cil",
         "plat_31.0.cil",
@@ -1054,6 +1056,7 @@ phony {
         "system_ext_sepolicy.cil",
     ] + [
         //"ifdef HAS_SYSTEM_EXT_SEPOLICY" check included in .cil
+        "system_ext_28.0.cil",
         "system_ext_29.0.cil",
         "system_ext_30.0.cil",
         "system_ext_31.0.cil",
@@ -1083,6 +1086,7 @@ phony {
         "system_ext_service_contexts_test",
         "system_ext_mac_permissions.xml",
         "system_ext_bug_map",
+        "system_ext_28.0.compat.cil",
         "system_ext_29.0.compat.cil",
         "system_ext_30.0.compat.cil",
         "system_ext_31.0.compat.cil",
@@ -1108,6 +1112,7 @@ phony {
         "product_mapping_file",
         "product_sepolicy.cil",
         // "ifdef HAS_PRODUCT_PUBLIC_SEPOLICY" check included in .cil
+        "product_28.0.cil",
         "product_29.0.cil",
         "product_30.0.cil",
         "product_31.0.cil",
@@ -1211,6 +1216,7 @@ phony {
 phony {
     name: "selinux_policy_system",
     required: [
+        "28.0.compat.cil",
         "29.0.compat.cil",
         "30.0.compat.cil",
         "31.0.compat.cil",
@@ -1221,6 +1227,7 @@ phony {
         "ashmem_compat_memfd_context.txt",
         "build_sepolicy",
         "fuzzer_bindings_test",
+        "plat_28.0.cil",
         "plat_29.0.cil",
         "plat_30.0.cil",
         "plat_31.0.cil",
@@ -1266,6 +1273,7 @@ phony {
             "sepolicy_compat_test",
             "sepolicy_test",
             "sepolicy_dev_type_test",
+            "treble_sepolicy_tests_28.0",
             "treble_sepolicy_tests_29.0",
             "treble_sepolicy_tests_30.0",
             "treble_sepolicy_tests_31.0",
