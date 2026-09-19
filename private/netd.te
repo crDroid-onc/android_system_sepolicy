@@ -109,6 +109,8 @@ allow netd self:global_capability_class_set { dac_override dac_read_search chown
 allow netd net_data_file:file create_file_perms;
 allow netd net_data_file:dir rw_dir_perms;
 allow netd self:global_capability_class_set fowner;
+allow netd proc_qtaguid_stat:file { getattr setattr };
+allow netd proc_qtaguid_ctrl:file { getattr setattr };
 
 # Needed to lock the iptables lock.
 allow netd system_file:file lock;
